@@ -5,4 +5,8 @@
     <RootNamespace>basic_site</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.0" />
+  </ItemGroup>
+
 </Project>
