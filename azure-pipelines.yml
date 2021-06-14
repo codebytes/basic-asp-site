@@ -11,8 +11,7 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
-  solution: '*.csproj'
 
 steps:
-- script: dotnet build --configuration $(buildConfiguration) $(solution)
+- script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
