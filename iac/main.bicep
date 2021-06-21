@@ -38,6 +38,7 @@ resource app 'Microsoft.Web/sites@2018-11-01' = {
         serverFarmId: hosting.id
     }
 }
- 
+
+output appName string = appUniqueName
 output appId string = app.id
 output APPINSIGHTS_INSTRUMENTATIONKEY string = appInsights.properties.InstrumentationKey

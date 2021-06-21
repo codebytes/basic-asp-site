@@ -32,10 +32,11 @@ jobs:
     steps:
 
       # Checkout code
-    - name: Download a single artifact
+    - name: Download IaC
       uses: actions/download-artifact@v2
       with:
         name: IaC
+        path: iac
 
       # Log into Azure
     - uses: azure/login@v1
@@ -56,3 +57,19 @@ jobs:
       run: echo ${{ steps.deploy.outputs.appId }}
     - name: appinsights
       run: echo ${{ steps.deploy.outputs.APPINSIGHTS_INSTRUMENTATIONKEY }}
+    
+    - name: Download App
+      uses: actions/download-artifact@v2
+      with:
+        name: app  
+        path: app
+
+    - name: 'Run Azure webapp deploy action using publish profile credentials'
+      uses: azure/webapps-deploy@v2
+      with: 
+        app-name: ${{ steps.deploy.outputs.appName }} # Replace with your app name
+        package: 'app'
+    
+    - name: logout
+      run: |
+        az logout
