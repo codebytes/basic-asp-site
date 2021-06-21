@@ -26,6 +26,7 @@ jobs:
         name: IaC
         path: iac
   deploy:
+    needs: [build]
     environment: Dev
     runs-on: ubuntu-latest
     steps:
