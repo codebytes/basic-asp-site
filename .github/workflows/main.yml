@@ -51,7 +51,7 @@ jobs:
         subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
         resourceGroupName: ${{ secrets.AZURE_RG }}
         template: ./iac/main.bicep
-        parameters: appName=basic-asp-site
+        parameters: appName=${{ secrets.AZURE_APP_NAME }}
    
     - name: Download App
       uses: actions/download-artifact@v2
