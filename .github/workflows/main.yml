@@ -21,7 +21,7 @@ jobs:
       with:
         name: app
         path: src/bin/release/net5.0/publish
-    - uses: actions/upload-artifact@v1
+    - uses: actions/upload-artifact@v4
       with:
         name: IaC
         path: iac
@@ -33,7 +33,7 @@ jobs:
 
       # Checkout code
     - name: Download IaC
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v4
       with:
         name: IaC
         path: iac
@@ -55,7 +55,7 @@ jobs:
         failOnStdErr: false
    
     - name: Download App
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v4.1.7
       with:
         name: app  
         path: app
